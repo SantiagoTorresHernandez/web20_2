@@ -19,33 +19,6 @@ export default function Counter(){
 
     return(
     <div>
-        <header className="p-4">
-            <nav className="w-full px-8 py-4 flex items-center justify-between bg-blue-600 shadow-sm">
-                <div className="flex items-center gap-8">
-                    <Link href="/">
-                        <Image
-                            src="/logo1.png"
-                            alt="Logo"
-                            width={100}
-                            height={24}
-                        />
-                    </Link>
-
-                    <div className="flex gap-6">
-                        <Link href="/" className="text-white hover:text-gray-200">
-                            Home
-                        </Link>
-                        <Link href="/counter" className="text-white hover:text-gray-200">
-                            COUNTER
-                        </Link>
-                        <Link href="/colors" className="text-white hover:text-gray-200">
-                            COLORS
-                        </Link>
-
-                    </div>
-                </div>
-            </nav>
-        </header>
         <main className="flex flex-col min-h-[calc(100vh-73px)] items-center justify-center">
             <h1 className="text-4xl font-bold text-gray-800">{counter}</h1>
             <form onSubmit={handleSubmit}>

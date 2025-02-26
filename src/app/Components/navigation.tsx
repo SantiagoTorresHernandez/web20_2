@@ -1,7 +1,11 @@
+'use client';
+
 import Link from "next/link";
 import Image from "next/image"
+import { useUser } from "../Context/UserContext";
 
 export default function Navigation(){
+    const { user } = useUser();
     return(
         <div>
             <header>
@@ -29,9 +33,13 @@ export default function Navigation(){
                         </div>
                     </div>
                     <div>
-                        <Link href="/SignUp" className="text-white hover:text-gray-200">
+                        {user ? (
+                            <span>Welcome, {user.name}</span>
+                        ):(
+                           <Link href="/SignUp" className="text-white hover:text-gray-200">
                             SignUp
-                        </Link>
+                            </Link> 
+                        )}
                     </div>
                     
                 </nav>

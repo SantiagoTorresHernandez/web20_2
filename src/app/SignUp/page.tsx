@@ -2,6 +2,7 @@
 
 import {useState} from "react";
 import Link from "next/link";
+import { useUser } from "../Context/UserContext";
 
 export default function SignUp(){
 
@@ -14,6 +15,8 @@ export default function SignUp(){
     const [registeredUser, setRegisteredUser] = useState<{name: string; email: string; password: string} | null>(null);
 
     const [passwordError, setPasswordError] = useState("");
+
+    const {setUser} = useUser();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value});
@@ -55,6 +58,11 @@ export default function SignUp(){
 
         alert("Registro exitoso"); 
     };
+
+    setUser({
+        name: formData.name,
+        email: formData.email
+    });
 
     return(
         <div className="relative min-h-screen bg-gray-100 flex flex-col items-center justify-center">
